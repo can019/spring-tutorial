@@ -11,13 +11,17 @@ sourceCompatibility = '11'
 repositories {
 	mavenCentral()
 }
-
+// 우리가 여기 적은 두 라이브러리를 gradle이 땡겨오고, 또 저 두 라이브러리에서 필요한 의존 라이브러리를 계속 땡김
+// 결국 최종적으로 spring core까지 다 땡겨온다.
+// Npm이라고 생각하면 좋을 것 같다.
+// *이 붙어 있는 애들은 이미 위에서 받은 중복이란 뜻
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // web engine
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-
+// 에전에 Server에 Tomcat을 설치하고 어쩌구... 하지 않는다.
+// 지금은 Tomcat이 내장(embeded)되어 있다. => 예전에 WAS 배포했지만 지금은 아님
 tasks.named('test') {
 	useJUnitPlatform()
 }
